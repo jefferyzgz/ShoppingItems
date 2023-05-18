@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation"
+    app:startDestination="@id/shoppingListSummaryFragment">
+
+    <fragment
+        android:id="@+id/shoppingListSummaryFragment"
+        android:name="com.zgz.shoppingitems.shoppinglistsummary.ShoppingListSummaryFragment"
+        android:label="ShoppingListSummaryFragment"
+        tools:layout="@layout/fragment_shopping_list_summary">
+        <action
+            android:id="@+id/action_shoppingListSummaryFragment_to_shoppingListFragment"
+            app:destination="@id/shoppingListFragment"
+            />
+    </fragment>
+    <fragment
+        android:id="@+id/shoppingListFragment"
+        android:name="com.zgz.shoppingitems.shoppinglist.ShoppingListFragment"
+        android:label="ShoppingListFragment"
+        tools:layout="@layout/fragment_shopping_list">
+        <argument
+            android:name="shoppingListId"
+            app:argType="long" />
+        <action
+            android:id="@+id/action_shoppingListFragment_to_shoppingListSummaryFragment"
+            app:destination="@id/shoppingListSummaryFragment"
+            app:launchSingleTop="false"
+            />
+        <action
+            android:id="@+id/action_shoppingListFragment_to_runningListHostFragment"
+            app:destination="@id/runningListHostFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/runningListHostFragment"
+        android:name="com.zgz.shoppingitems.runninglist.RunningListHostFragment"
+        android:label="RunningListHostFragment" >
+        <action
+            android:id="@+id/action_runningListHostFragment_to_shoppingListFragment"
+            app:destination="@id/shoppingListFragment" />
+        <argument
+            android:name="shoppingListId"
+            app:argType="long" />
+    </fragment>
+</navigation>

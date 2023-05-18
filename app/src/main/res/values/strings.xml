@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">ShoppingListZ</string>
+    <string name="list_name">List Name</string>
+    <string name="add_item_button">Add Item</string>
+    <string name="run_list_button">Go!</string>
+    <string name="save_list_button">Save List</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="ItemInputName">Item name</string>
+    <string name="item_name_hint">name of item</string>
+    <string name="shopping_list_name_hint">shopping list name</string>
+    <string name="item_unit_hint">unit</string>
+    <string name="ShoppingListsText">Saved Shopping Lists</string>
+    <string name="add_list_button">Add a new List</string>
+    <string name="delete_list_button">Delete</string>
+</resources>

@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    >
+
+    <data>
+        <variable
+            name="clickDeleteListener"
+            type="com.zgz.shoppingitems.shoppinglistsummary.ShoppingListSummaryDeleteListener" />
+        <variable
+            name="clickSelectListener"
+            type="com.zgz.shoppingitems.shoppinglistsummary.ShoppingListSummarySelectListener" />
+        <variable
+            name="list"
+            type="com.zgz.shoppingitems.database.ShoppingList" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        >
+
+        <TextView
+            android:id="@+id/itemName"
+            android:layout_width="0dp"
+            android:layout_height="20dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/itemAmount"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="@string/list_name"
+            android:onClick="@{() -> clickSelectListener.onClick(list)}"
+            />
+
+        <TextView
+            android:id="@+id/itemAmount"
+            android:layout_width="40dp"
+            android:layout_height="20dp"
+            android:layout_marginStart="8dp"
+            app:layout_constraintBottom_toBottomOf="@id/itemName"
+            app:layout_constraintStart_toEndOf="@+id/itemName"
+            app:layout_constraintTop_toTopOf="@+id/itemName"
+            app:layout_constraintVertical_bias="1.0"
+            tools:text="amo" />
+
+        <Button
+            android:id="@+id/deleteButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="8dp"
+            android:onClick="@{() -> clickDeleteListener.onClick(list)}"
+            android:text="delete"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/itemAmount"
+            app:srcCompat="@drawable/add_circle_outline_24" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

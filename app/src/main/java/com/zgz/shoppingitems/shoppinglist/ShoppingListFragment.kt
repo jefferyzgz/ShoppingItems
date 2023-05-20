@@ -27,7 +27,7 @@ class ShoppingListFragment : Fragment() {
             inflater, R.layout.fragment_shopping_list, container, false)
 
         val application = requireNotNull(this.activity).application
-        val arguments = ShoppingListFragmentArgs.fromBundle(arguments!!)
+        val arguments = ShoppingListFragmentArgs.fromBundle(requireArguments())
 
         val dataSource = ShoppingListDatabase.getInstance(application).shoppingItemDao
 

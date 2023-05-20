@@ -6,8 +6,8 @@
     <data>
 
         <variable
-            name="shoppingListViewModel"
-            type="com.zgz.shoppingitems.shoppinglist.ShoppingListViewModel" />
+            name="runningShoppingListViewModel"
+            type="com.zgz.shoppingitems.runninglist.RunningShoppingListViewModel" />
 
     </data>
 

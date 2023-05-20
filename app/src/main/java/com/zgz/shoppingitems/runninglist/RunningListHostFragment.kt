@@ -12,10 +12,6 @@ import com.zgz.shoppingitems.R
 import com.zgz.shoppingitems.database.ShoppingListDatabase
 import com.zgz.shoppingitems.databinding.FragmentRunningListHostBinding
 import com.zgz.shoppingitems.shoppinglist.ShoppingListFragmentArgs
-import com.zgz.shoppingitems.shoppinglist.ShoppingListViewModel
-import com.zgz.shoppingitems.shoppinglist.ShoppingListViewModelFactory
-import com.zgz.shoppingitems.shoppinglistsummary.ShoppingListSummaryViewModel
-import com.zgz.shoppingitems.shoppinglistsummary.ShoppingListSummaryViewModelFactory
 import kotlinx.android.synthetic.main.fragment_running_list_host.*
 
 /**
@@ -33,14 +29,25 @@ class RunningListHostFragment : Fragment() {
             inflater, R.layout.fragment_running_list_host, container, false
         )
 
-        val arguments = ShoppingListFragmentArgs.fromBundle(arguments!!)
+        val arguments = ShoppingListFragmentArgs.fromBundle(requireArguments())
         val listId = arguments.shoppingListId
 
-        val fragmentList = listOf(
+/*        val fragmentList = listOf(
             BoughtListFragment(listId),
             CurrentListFragment(listId),
             DeletedListFragment(listId),
         )
+*/
+        val application = requireNotNull(this.activity).application
+        val dataSource = ShoppingListDatabase.getInstance(application).shoppingItemDao
+
+        val viewModelFactory = RunningShoppingListViewModelFactory(listId, dataSource, application)
+
+        val shoppingListViewModel = ViewModelProvider(this, viewModelFactory).get(
+            RunningShoppingListViewModel::class.java)
+        binding.runningShoppingListViewModel = shoppingListViewModel
+
+        val fragmentList = shoppingListViewModel.fragmentList
 
         val viewPagerAdapter = RunningListPagerAdapter(childFragmentManager, lifecycle, fragmentList)
         val viewPager2 = binding.runningListPager
@@ -80,8 +87,6 @@ class RunningListHostFragment : Fragment() {
         }
 
         bottomNav.selectedItemId = R.id.current_list
-
-        val application = requireNotNull(this.activity).application
 
 /*        val dataSource = ShoppingListDatabase.getInstance(application).shoppingItemDao
 

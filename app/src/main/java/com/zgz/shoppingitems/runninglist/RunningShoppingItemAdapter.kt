@@ -42,9 +42,12 @@ class RunningShoppingItemAdapter ():
 
         fun bind(item: ShoppingItem) {
             //val res = itemView.context.resources
-            binding.itemAmount.text = item.amount.toString()
-            binding.itemName.text = item.itemName + "-" +item.itemId + "-p" + item.itemPriority
-            binding.itemUnit.text = item.itemUnit
+//            binding.itemAmount.text = item.amount.toString()
+           // binding.itemName.setTextColor(Color.RED)
+            binding.itemName.text = item.itemName + "  " + item.amount.toString() + "  " + item.itemUnit
+            binding.itemName.height = 30
+            binding.itemName.textSize = 10.0F
+//            binding.itemUnit.text = item.itemUnit
             binding.executePendingBindings()
         }
 
@@ -70,10 +73,11 @@ class RunningShoppingItemDiffCallBack: DiffUtil.ItemCallback<ShoppingItem>() {
     }
 }
 
-class ShoppingItemSwipeToDeleteCallBack(private val viewModel: RunningShoppingListViewModel,
-                                        private val lifecycleOwner: LifecycleOwner,
-                                        private val adapter: RunningShoppingItemAdapter
-) : ItemTouchHelper.SimpleCallback(
+class ShoppingItemSwipeToDeleteCallBack(
+        private val viewModel: RunningShoppingListViewModel,
+        private val lifecycleOwner: LifecycleOwner,
+        private val adapter: RunningShoppingItemAdapter
+    ) : ItemTouchHelper.SimpleCallback(
     0, ItemTouchHelper.LEFT or ItemTouchHelper.RIGHT) {
 
     //private Drawable  icon = ContextCompat.getDrawable(getApplicationContext(),R.drawable.icon_delete);

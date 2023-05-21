@@ -29,15 +29,17 @@ class RunningListHostFragment : Fragment() {
             inflater, R.layout.fragment_running_list_host, container, false
         )
 
-        val arguments = ShoppingListFragmentArgs.fromBundle(requireArguments())
-        val listId = arguments.shoppingListId
+//        val arguments = ShoppingListFragmentArgs.fromBundle(requireArguments())
+        val listId = requireArguments().getLong("shoppingListId")
+//        this.arguments
+//        requireArguments().putLong("listId", listId)
 
-/*        val fragmentList = listOf(
-            BoughtListFragment(listId),
-            CurrentListFragment(listId),
-            DeletedListFragment(listId),
+        val fragmentList = listOf(
+            BoughtListFragment.newInstance(listId),
+            CurrentListFragment.newInstance(listId),
+            DeletedListFragment.newInstance(listId)
         )
-*/
+
         val application = requireNotNull(this.activity).application
         val dataSource = ShoppingListDatabase.getInstance(application).shoppingItemDao
 
@@ -47,7 +49,7 @@ class RunningListHostFragment : Fragment() {
             RunningShoppingListViewModel::class.java)
         binding.runningShoppingListViewModel = shoppingListViewModel
 
-        val fragmentList = shoppingListViewModel.fragmentList
+//        val fragmentList = shoppingListViewModel.fragmentList
 
         val viewPagerAdapter = RunningListPagerAdapter(childFragmentManager, lifecycle, fragmentList)
         val viewPager2 = binding.runningListPager
@@ -101,4 +103,5 @@ class RunningListHostFragment : Fragment() {
 
         return binding.root
     }
+
 }

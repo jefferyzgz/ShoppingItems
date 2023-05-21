@@ -14,7 +14,7 @@ import com.zgz.shoppingitems.databinding.FragmentBoughtListBinding
 import com.zgz.shoppingitems.shoppinglist.*
 
 
-class BoughtListFragment constructor(val listId : Long) : Fragment() {
+class BoughtListFragment /*constructor(val listId : Long)*/ : Fragment() {
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -26,6 +26,13 @@ class BoughtListFragment constructor(val listId : Long) : Fragment() {
 
         val application = requireNotNull(this.activity).application
         val dataSource = ShoppingListDatabase.getInstance(application).shoppingItemDao
+
+/*        val listId: Long
+            get() = requireArguments().getLong("listId")
+                ?: throw IllegalArgumentException("Argument listId required")
+*/
+        val listId = requireArguments().getLong("listId")
+//        requireArguments().putLong("listId", listId)
 
         val viewModelFactory = RunningShoppingListViewModelFactory(listId, dataSource, application)
 
@@ -48,6 +55,23 @@ class BoughtListFragment constructor(val listId : Long) : Fragment() {
         })
 
         return binding.root
+    }
+    companion object {
+        /**
+         * Use this factory method to create a new instance of
+         * this fragment using the provided parameters.
+         *
+         * @param param1 Parameter 1.
+         * @param param2 Parameter 2.
+         * @return A new instance of fragment ShoppingListSummaryFragment.
+         */
+        @JvmStatic
+        fun newInstance(listId: Long) =
+            BoughtListFragment().apply {
+                arguments = Bundle().apply {
+                    putLong("listId", listId)
+                }
+            }
     }
 
 }

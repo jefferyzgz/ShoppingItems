@@ -26,9 +26,9 @@ class RunningShoppingListViewModel(private val listIdKey: Long = 0L,
     val currentShoppingListName = currentShoppingList.value?.listName
 
     var fragmentList = listOf(
-        BoughtListFragment(listIdKey),
-        CurrentListFragment(listIdKey),
-        DeletedListFragment(listIdKey),
+        BoughtListFragment(),
+        CurrentListFragment(),
+        DeletedListFragment()
     )
 
     private suspend fun insertShoppingList(list: ShoppingList): Long {
@@ -51,11 +51,11 @@ class RunningShoppingListViewModel(private val listIdKey: Long = 0L,
             currentShoppingItems = database.getItemsByListIdAndState(listIdKey, 0)
             boughtShoppingItems = database.getItemsByListIdAndState(listIdKey, 1)
             deletedShoppingItems = database.getItemsByListIdAndState(listIdKey, 2)
-            fragmentList = listOf(
+            /*fragmentList = listOf(
                 BoughtListFragment(listIdKey),
-                CurrentListFragment(listIdKey),
+                CurrentListFragment(),
                 DeletedListFragment(listIdKey),
-            )
+            )*/
             Log.i(
                 "vm",
                 "list:" + currentShoppingList.value.toString() + ",items:" + currentShoppingItems.value.toString()

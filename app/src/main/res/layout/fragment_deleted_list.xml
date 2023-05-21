@@ -5,7 +5,7 @@
     <data>
         <variable
             name="runningShoppingListViewModel"
-            type="com.zgz.shoppingitems.shoppinglist.ShoppingListViewModel" />
+            type="com.zgz.shoppingitems.runninglist.RunningShoppingListViewModel" />
 
     </data>
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -14,8 +14,6 @@
         tools:context="com.zgz.todolistz.runninglist.DeletedListFragment"
         android:background="@color/deleted_orange"
         >
-
-
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/shopping_item_list"
             android:layout_width="0dp"

@@ -13,7 +13,7 @@
     <color name="green_color">#388310</color>
     <color name="white_text_color">#f0f0f0</color>
     <color name="orange">#FF5722</color>
-    <color name="bought_green">#B1EFCD</color>
-    <color name="current_white">#F3F0EF</color>
-    <color name="deleted_orange">#ECB5A4</color>
+    <color name="bought_green">#E5F8ED</color>
+    <color name="current_white">#F4F4BF</color>
+    <color name="deleted_orange">#F8E3DD</color>
 </resources>

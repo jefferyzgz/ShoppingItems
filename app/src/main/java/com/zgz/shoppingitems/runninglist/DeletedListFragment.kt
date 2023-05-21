@@ -11,6 +11,7 @@ import androidx.recyclerview.widget.ItemTouchHelper
 import com.zgz.shoppingitems.R
 import com.zgz.shoppingitems.database.ShoppingListDatabase
 import com.zgz.shoppingitems.databinding.FragmentCurrentListBinding
+import com.zgz.shoppingitems.databinding.FragmentDeletedListBinding
 import com.zgz.shoppingitems.shoppinglist.ShoppingListViewModel
 
 
@@ -20,14 +21,13 @@ class DeletedListFragment /*constructor(val listId : Long)*/  : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val binding: FragmentCurrentListBinding = DataBindingUtil.inflate(
-            inflater, R.layout.fragment_current_list, container, false)
+        val binding: FragmentDeletedListBinding = DataBindingUtil.inflate(
+            inflater, R.layout.fragment_deleted_list, container, false)
 
         val application = requireNotNull(this.activity).application
         val dataSource = ShoppingListDatabase.getInstance(application).shoppingItemDao
 
         val listId = requireArguments().getLong("listId")
-//        requireArguments().putLong("listId", listId)
 
         val viewModelFactory = RunningShoppingListViewModelFactory(listId, dataSource, application)
 

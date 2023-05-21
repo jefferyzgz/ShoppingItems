@@ -27,12 +27,7 @@ class BoughtListFragment /*constructor(val listId : Long)*/ : Fragment() {
         val application = requireNotNull(this.activity).application
         val dataSource = ShoppingListDatabase.getInstance(application).shoppingItemDao
 
-/*        val listId: Long
-            get() = requireArguments().getLong("listId")
-                ?: throw IllegalArgumentException("Argument listId required")
-*/
         val listId = requireArguments().getLong("listId")
-//        requireArguments().putLong("listId", listId)
 
         val viewModelFactory = RunningShoppingListViewModelFactory(listId, dataSource, application)
 

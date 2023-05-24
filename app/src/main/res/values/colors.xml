@@ -17,4 +17,5 @@
     <color name="current_white">#F4F4BF</color>
     <color name="deleted_orange">#F8E3DD</color>
     <color name="textview_grey">#DFDDDD</color>
+    <color name="textview_background_grey">#C8C7C7</color>
 </resources>

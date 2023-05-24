@@ -7,11 +7,13 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.content.ContextCompat
 import androidx.lifecycle.LifecycleOwner
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
+import com.zgz.shoppingitems.R
 import com.zgz.shoppingitems.database.ShoppingItem
 import com.zgz.shoppingitems.databinding.RunningListItemBinding
 
@@ -26,6 +28,11 @@ class RunningShoppingItemAdapter ():
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val item = getItem(position)
         holder.bind(item)
+        if(position % 2 == 0) {
+            holder.itemView.setBackgroundColor(ContextCompat.getColor(holder.itemView.context, R.color.textview_background_grey))
+        } else {
+            holder.itemView.setBackgroundColor(ContextCompat.getColor(holder.itemView.context, R.color.textview_background_grey))
+        }
     }
 
     fun fetchItemId(position: Int): Long {
@@ -157,6 +164,8 @@ class ShoppingItemSwipeToDeleteCallBack(
             viewModel.markShoppingItemAsDelete(itemId)
         }
 
+        //adapter.notifyItemChanged(position)
+        adapter.notifyDataSetChanged()
         Log.i("Swipe", "direction=," +direction+",position="+position + "++id=" + itemId)
     }
 

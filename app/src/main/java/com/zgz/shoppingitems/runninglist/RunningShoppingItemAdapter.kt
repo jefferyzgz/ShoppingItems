@@ -13,9 +13,7 @@ import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.zgz.shoppingitems.database.ShoppingItem
-import com.zgz.shoppingitems.databinding.ShoppingListItemBinding
-import com.zgz.shoppingitems.shoppinglist.ShoppingItemAdapter
-import com.zgz.shoppingitems.shoppinglist.ShoppingListViewModel
+import com.zgz.shoppingitems.databinding.RunningListItemBinding
 
 
 class RunningShoppingItemAdapter ():
@@ -37,16 +35,16 @@ class RunningShoppingItemAdapter ():
         return itemId
     }
 
-    class ViewHolder private constructor(val binding: ShoppingListItemBinding)
+    class ViewHolder private constructor(val binding: RunningListItemBinding)
         : RecyclerView.ViewHolder(binding.root) {
 
         fun bind(item: ShoppingItem) {
             //val res = itemView.context.resources
 //            binding.itemAmount.text = item.amount.toString()
            // binding.itemName.setTextColor(Color.RED)
-            binding.itemName.text = item.itemName + "  " + item.amount.toString() + "  " + item.itemUnit
-            binding.itemName.height = 30
-            binding.itemName.textSize = 10.0F
+            binding.itemName.text = item.itemName + "--" + item.amount.toString() + "/" + item.itemUnit
+//            binding.itemName.height = 30
+//            binding.itemName.textSize = 20.0F
 //            binding.itemUnit.text = item.itemUnit
             binding.executePendingBindings()
         }
@@ -54,7 +52,7 @@ class RunningShoppingItemAdapter ():
         companion object {
             fun from(parent: ViewGroup): ViewHolder {
                 val layoutInflater = LayoutInflater.from(parent.context)
-                val binding = ShoppingListItemBinding.inflate(layoutInflater, parent, false)
+                val binding = RunningListItemBinding.inflate(layoutInflater, parent, false)
 
                 return ViewHolder(binding)
             }

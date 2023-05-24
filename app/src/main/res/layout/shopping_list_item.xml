@@ -9,6 +9,9 @@
         <variable
             name="item"
             type="com.zgz.shoppingitems.database.ShoppingItem" />
+        <variable
+            name="longClickModifyListener"
+            type="com.zgz.shoppingitems.shoppinglist.ShoppingItemLongClickListener" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -18,7 +21,7 @@
         >
 
         <TextView
-            android:id="@+id/itemName"
+            android:id="@+id/item_name"
             android:layout_width="0dp"
             android:layout_height="20dp"
             android:layout_marginStart="8dp"
@@ -26,34 +29,48 @@
             android:layout_marginBottom="8dp"
             android:text="name"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/itemAmount"
+            app:layout_constraintEnd_toStartOf="@+id/item_amount"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-
+            android:longClickable="true"
+        android:onLongClick="@{() -> longClickModifyListener.onLongClick(item)}"
             />
 
+
         <TextView
-            android:id="@+id/itemAmount"
+            android:id="@+id/item_amount"
             android:layout_width="40dp"
             android:layout_height="20dp"
             android:layout_marginStart="8dp"
-            app:layout_constraintBottom_toBottomOf="@id/itemName"
-            app:layout_constraintStart_toEndOf="@+id/itemName"
-            app:layout_constraintTop_toTopOf="@+id/itemName"
+            app:layout_constraintBottom_toBottomOf="@id/item_name"
+            app:layout_constraintStart_toEndOf="@+id/item_name"
+            app:layout_constraintTop_toTopOf="@+id/item_name"
             app:layout_constraintVertical_bias="1.0"
             tools:text="amo" />
 
         <TextView
-            android:id="@+id/itemUnit"
+            android:id="@+id/item_unit"
             android:layout_width="40dp"
             android:layout_height="20dp"
             android:layout_marginStart="8dp"
             android:layout_marginEnd="8dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.474"
-            app:layout_constraintStart_toEndOf="@+id/itemAmount"
-            app:layout_constraintTop_toTopOf="@+id/itemName"
-            app:layout_constraintBottom_toBottomOf="@+id/itemName"
+            app:layout_constraintStart_toEndOf="@+id/item_amount"
+            app:layout_constraintTop_toTopOf="@+id/item_name"
+            app:layout_constraintBottom_toBottomOf="@+id/item_name"
             tools:text="unit" />
+        <TextView
+            android:id="@+id/item_priority"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:visibility="gone"
+            tools:ignore="MissingConstraints" />
+        <TextView
+            android:id="@+id/item_id"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:visibility="gone"
+            tools:ignore="MissingConstraints" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

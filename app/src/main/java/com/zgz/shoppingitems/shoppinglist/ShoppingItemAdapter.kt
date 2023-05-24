@@ -17,7 +17,7 @@ import com.zgz.shoppingitems.database.ShoppingList
 import com.zgz.shoppingitems.databinding.ShoppingListItemBinding
 
 
-class ShoppingItemAdapter():
+class ShoppingItemAdapter(val longClickModifyListener: ShoppingItemLongClickListener):
     ListAdapter<ShoppingItem, ShoppingItemAdapter.ViewHolder>(ShoppingItemDiffCallBack()) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -26,7 +26,7 @@ class ShoppingItemAdapter():
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val item = getItem(position)
-        holder.bind(item)
+        holder.bind(item, longClickModifyListener)
     }
 
     fun fetchItemId(position: Int): Long {
@@ -39,11 +39,13 @@ class ShoppingItemAdapter():
     class ViewHolder private constructor(val binding: ShoppingListItemBinding)
         : RecyclerView.ViewHolder(binding.root) {
 
-        fun bind(item: ShoppingItem) {
+        fun bind(item: ShoppingItem, longClickModifyListener: ShoppingItemLongClickListener) {
             //val res = itemView.context.resources
             binding.itemAmount.text = item.amount.toString()
             binding.itemName.text = item.itemName + "-" +item.itemId + "-p" + item.itemPriority
             binding.itemUnit.text = item.itemUnit
+            binding.item = item
+            binding.longClickModifyListener = longClickModifyListener
             binding.executePendingBindings()
         }
 
@@ -155,3 +157,15 @@ class ShoppingItemSwipeToDeleteCallBack(private val viewModel: ShoppingListViewM
 /*class ShoppingItemSwipeDeleteListener(val swipeListener: (itemId: Long) -> Unit) {
     fun onClick(item: ShoppingItem) = swipeListener(item.itemId)
 }*/
+class ShoppingItemLongClickListener(val longClickListener: (itemId: ShoppingItem) -> Unit) {
+    fun onLongClick(item: ShoppingItem) : Boolean {
+        longClickListener(item)
+        return true
+    }
+    //fun onClick(item: ShoppingItem) = longClickListener(item.itemId)
+}
+/*
+class ShoppingListSummarySelectListener(val clickListener: (listId: Long) -> Unit) {
+    fun onClick(list: ShoppingList) = clickListener(list.listId)
+}
+*/

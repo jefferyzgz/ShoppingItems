@@ -22,6 +22,8 @@ class ShoppingListViewModel(
 
     val currentShoppingListName = currentShoppingList.value?.listName
 
+    var selectedItem = ShoppingItem()
+
     private suspend fun insertShoppingList(list: ShoppingList): Long {
         var listCreated: Long
         withContext(Dispatchers.IO) {
@@ -34,6 +36,7 @@ class ShoppingListViewModel(
 
     init{
         getShoppingList()
+        //selectedItem.value = ShoppingItem()
     }
 
     private fun getShoppingList() {
@@ -42,6 +45,14 @@ class ShoppingListViewModel(
             currentShoppingItems = database.getItemsByListIdAndState(listIdKey, 0)
             Log.i("vm", "list:" + currentShoppingList.value.toString() + ",items:" + currentShoppingItems.value.toString())
         }
+    }
+
+
+    fun getShoppingItem(itemId: Long) : ShoppingItem {
+        viewModelScope.launch {
+            selectedItem = database.getItemById(itemId)
+        }
+        return selectedItem
     }
 
     private fun createNewShoppingList() {
@@ -75,6 +86,19 @@ class ShoppingListViewModel(
         viewModelScope.launch {
             val unit = database.updateListName(listId, listName)
 
+        }
+    }
+
+    fun updateShoppingItem(listId: Long,itemId: Long, itemName: String, amount: Long, unit: String, priority: Int) {
+        viewModelScope.launch {
+            var item = ShoppingItem()
+            item.shoppingListId = listId
+            item.itemId = itemId
+            item.itemName = itemName
+            item.amount = amount
+            item.itemUnit = unit
+            item.itemPriority = priority
+            database.updateItem(item)
         }
     }
 

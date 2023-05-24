@@ -39,10 +39,22 @@ class ShoppingListFragment : Fragment() {
         binding.shoppingListViewModel = shoppingListViewModel
         binding.lifecycleOwner = this
 
-        val adapter = ShoppingItemAdapter(/*ShoppingItemSwipeDeleteListener {
-            shoppingListViewModel.deleteShoppingItem(it)
-//            Log.i("deleteSwipe", it.toString())
-        }*/)
+        //Long click to select the item to modify
+        val adapter = ShoppingItemAdapter(ShoppingItemLongClickListener {
+            binding.shoppingItemNameEdit.setText(it.itemName)
+            binding.shoppingItemAmount.value = it.amount.toInt()
+            binding.shoppingItemUnitEdit.setText(it.itemUnit)
+            binding.modifyItemId.setText(it.itemId.toString())
+            when(it.itemPriority) {
+                0 -> binding.radioNorm.isChecked = true
+                1 -> binding.radioImp.isChecked = true
+                2 -> binding.radioVimp.isChecked = true
+            }
+
+            binding.addNewButton.visibility = View.GONE
+            binding.modifyItemButton.visibility = View.VISIBLE
+        })
+
         binding.shoppingItemList.adapter = adapter
 
         binding.shoppingItemAmount.minValue = 1
@@ -68,6 +80,34 @@ class ShoppingListFragment : Fragment() {
             binding.shoppingItemAmount.value = 1
             binding.shoppingItemUnitEdit.setText("")
             binding.radioNorm.isChecked = true
+        }
+
+
+        //Modify the selected item
+        binding.modifyItemButton.setOnClickListener {
+            val checkedId = binding.importanceGroup.checkedRadioButtonId
+            var priority = 0
+            when(checkedId) {
+                R.id.radio_vimp -> priority = 2
+                R.id.radio_imp -> priority = 1
+                else -> 0
+            }
+
+            shoppingListViewModel.updateShoppingItem(
+                listId,
+                binding.modifyItemId.text.toString().toLong(),
+                binding.shoppingItemNameEdit.text.toString(),
+                binding.shoppingItemAmount.value.toLong(),
+                binding.shoppingItemUnitEdit.text.toString(),
+                priority)
+
+            binding.shoppingItemNameEdit.setText("")
+            binding.shoppingItemNameEdit.requestFocus()
+            binding.shoppingItemAmount.value = 1
+            binding.shoppingItemUnitEdit.setText("")
+            binding.radioNorm.isChecked = true
+            binding.modifyItemButton.visibility = View.GONE
+            binding.addNewButton.visibility = View.VISIBLE
         }
 
         binding.saveListButton.setOnClickListener {

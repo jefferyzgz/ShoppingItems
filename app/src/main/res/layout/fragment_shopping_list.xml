@@ -175,6 +175,26 @@
 
         </RadioGroup>
 
+        <ImageView
+            android:id="@+id/modify_item_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:srcCompat="@drawable/ic_baseline_mode_24"
+            tools:layout_editor_absoluteX="302dp"
+            tools:layout_editor_absoluteY="579dp"
+            android:contentDescription="@string/add_item_button"
+            app:layout_constraintBottom_toTopOf="@+id/importance_group"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/shopping_item_list"
+            android:visibility="gone"
+            app:tint="@color/colorAccent"
+            />
+        <EditText
+            android:id="@+id/modify_item_id"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:visibility="gone"
+            tools:ignore="MissingConstraints" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

@@ -16,4 +16,5 @@
     <color name="bought_green">#E5F8ED</color>
     <color name="current_white">#F4F4BF</color>
     <color name="deleted_orange">#F8E3DD</color>
+    <color name="textview_grey">#DFDDDD</color>
 </resources>

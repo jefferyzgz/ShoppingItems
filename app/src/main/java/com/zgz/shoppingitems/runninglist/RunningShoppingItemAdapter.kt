@@ -29,9 +29,9 @@ class RunningShoppingItemAdapter ():
         val item = getItem(position)
         holder.bind(item)
         if(position % 2 == 0) {
-            holder.itemView.setBackgroundColor(ContextCompat.getColor(holder.itemView.context, R.color.textview_background_grey))
+            //holder.itemView.setBackgroundColor(ContextCompat.getColor(holder.itemView.context, R.color.textview_background_grey))
         } else {
-            holder.itemView.setBackgroundColor(ContextCompat.getColor(holder.itemView.context, R.color.textview_background_grey))
+            //holder.itemView.setBackgroundColor(ContextCompat.getColor(holder.itemView.context, R.color.textview_background_grey))
         }
     }
 

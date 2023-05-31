@@ -42,7 +42,13 @@ class ShoppingItemAdapter(val longClickModifyListener: ShoppingItemLongClickList
         fun bind(item: ShoppingItem, longClickModifyListener: ShoppingItemLongClickListener) {
             //val res = itemView.context.resources
             binding.itemAmount.text = item.amount.toString()
-            binding.itemName.text = item.itemName + "-" +item.itemId + "-p" + item.itemPriority
+            var privority = "*"
+            when(item.itemPriority) {
+                0 -> privority = "*"
+                1 -> privority = "**"
+                2 -> privority = "***"
+            }
+            binding.itemName.text = privority + " " + item.itemName
             binding.itemUnit.text = item.itemUnit
             binding.item = item
             binding.longClickModifyListener = longClickModifyListener

@@ -49,7 +49,13 @@ class RunningShoppingItemAdapter ():
             //val res = itemView.context.resources
 //            binding.itemAmount.text = item.amount.toString()
            // binding.itemName.setTextColor(Color.RED)
-            binding.itemName.text = item.itemName + "--" + item.amount.toString() + "/" + item.itemUnit
+            var privority = "*"
+            when(item.itemPriority) {
+                0 -> privority = "*"
+                1 -> privority = "**"
+                2 -> privority = "***"
+            }
+            binding.itemName.text = privority + " " + item.itemName + " " + item.amount.toString() + "/" + item.itemUnit
 //            binding.itemName.height = 30
 //            binding.itemName.textSize = 20.0F
 //            binding.itemUnit.text = item.itemUnit

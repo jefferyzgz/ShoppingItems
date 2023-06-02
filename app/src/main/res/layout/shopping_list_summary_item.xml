@@ -60,6 +60,6 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/itemAmount"
-            app:srcCompat="@drawable/add_circle_outline_24" />
+             />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

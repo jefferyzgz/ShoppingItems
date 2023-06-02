@@ -1,12 +1,18 @@
 package com.zgz.shoppingitems.shoppinglistsummary
 
+import android.app.AlertDialog
+import android.content.DialogInterface
 import android.os.Bundle
+import android.text.Html
 import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.core.content.ContextCompat
+import androidx.core.text.HtmlCompat
+import androidx.core.view.marginRight
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
@@ -43,9 +49,33 @@ class ShoppingListSummaryFragment : Fragment() {
 
         //
         val adapter = ShoppingListSummaryAdapter(ShoppingListSummaryDeleteListener {
-            shoppingListSummaryViewModel.onDeleteList(it)
-            Toast.makeText(this.context, "Delete Shopping List Successfully!", Toast.LENGTH_SHORT).show()
+            //Delete shopping list
+            val builder = AlertDialog.Builder(this.requireContext(), R.style.AlertDialogTheme)
+
+            builder.setMessage("Delete this list?")
+                .setCancelable(true)
+                .setPositiveButton("Proceed", DialogInterface.OnClickListener {
+                dialog, which -> deleteList(shoppingListSummaryViewModel, it)
+            })
+                .setNegativeButton("Cancel", DialogInterface.OnClickListener{
+                    dialog, which -> Toast.makeText(this.context, "Delete Shopping List Cancelled!", Toast.LENGTH_SHORT).show()
+                })
+            val alert = builder.create()
+            alert.setTitle("Delete List")// Shopping List")
+            alert.show()
+
+            //The text color of buttons need to be reset, otherwise it will be the same as the background color.
+            alert.getButton(AlertDialog.BUTTON_POSITIVE)
+                .setTextColor(ContextCompat.getColor(this.requireContext(), R.color.white_text_color))
+            //alert.getButton(AlertDialog.BUTTON_POSITIVE)
+                //.setPadding(100, 0, 100, 0)
+
+            alert.getButton(AlertDialog.BUTTON_NEGATIVE)
+                .setTextColor(ContextCompat.getColor(this.requireContext(), R.color.white_text_color))
+            //alert.getButton(AlertDialog.BUTTON_NEGATIVE).marginRight
+
         }, ShoppingListSummarySelectListener {
+            //Go to shopping list
             shoppingListSummaryViewModel.onNavigateToList(it)
         })
 
@@ -71,6 +101,10 @@ class ShoppingListSummaryFragment : Fragment() {
         return binding.root
     }
 
+    fun deleteList(shoppingListSummaryViewModel : ShoppingListSummaryViewModel, listId : Long) {
+        shoppingListSummaryViewModel.onDeleteList(listId)
+        Toast.makeText(this.context, "Delete Shopping List Successfully!", Toast.LENGTH_SHORT).show()
+    }
 /*
     companion object {
         /**

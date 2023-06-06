@@ -12,10 +12,10 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
-class RunningShoppingListViewModel(private val listIdKey: Long = 0L,
-                                   val database: ShoppingListDatabaseDao,
-                                   application: Application
-) : AndroidViewModel(application) {
+class RunningShoppingListViewModel(
+    private val listIdKey: Long = 0L,
+    val database: ShoppingListDatabaseDao,
+    application: Application) : AndroidViewModel(application) {
 
     var currentShoppingList = database.getListByListId(listIdKey)
 
@@ -130,6 +130,12 @@ class RunningShoppingListViewModel(private val listIdKey: Long = 0L,
     fun markShoppingItemAsCurrent(itemId: Long) {
         viewModelScope.launch {
             database.updateItemSatae(itemId, 0)
+        }
+    }
+
+    fun deleteShoppingItemAsCurrent(itemId: Long) {
+        viewModelScope.launch {
+            database.deleteItem(itemId)
         }
     }
 

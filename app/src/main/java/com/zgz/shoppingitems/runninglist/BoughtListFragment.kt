@@ -39,7 +39,7 @@ class BoughtListFragment /*constructor(val listId : Long)*/ : Fragment() {
         binding.shoppingItemList.adapter = adapter
 
 
-        val itemTouchHelper = ItemTouchHelper(ShoppingItemSwipeToDeleteCallBack(shoppingListViewModel, viewLifecycleOwner, adapter))
+        val itemTouchHelper = ItemTouchHelper(BoughtListShoppingItemSwipeToDeleteCallBack(shoppingListViewModel, viewLifecycleOwner, adapter))
         itemTouchHelper.attachToRecyclerView(binding.shoppingItemList)
 
 

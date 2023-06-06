@@ -10,9 +10,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.ItemTouchHelper
 import com.zgz.shoppingitems.R
 import com.zgz.shoppingitems.database.ShoppingListDatabase
-import com.zgz.shoppingitems.databinding.FragmentCurrentListBinding
 import com.zgz.shoppingitems.databinding.FragmentDeletedListBinding
-import com.zgz.shoppingitems.shoppinglist.ShoppingListViewModel
 
 
 class DeletedListFragment /*constructor(val listId : Long)*/  : Fragment() {
@@ -40,7 +38,7 @@ class DeletedListFragment /*constructor(val listId : Long)*/  : Fragment() {
         binding.shoppingItemList.adapter = adapter
 
 
-        val itemTouchHelper = ItemTouchHelper(ShoppingItemSwipeToDeleteCallBack(shoppingListViewModel, viewLifecycleOwner, adapter))
+        val itemTouchHelper = ItemTouchHelper(DeletedListShoppingItemSwipeToDeleteCallBack(shoppingListViewModel, viewLifecycleOwner, adapter))
         itemTouchHelper.attachToRecyclerView(binding.shoppingItemList)
 
 

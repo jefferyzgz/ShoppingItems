@@ -10,7 +10,6 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.ItemTouchHelper
 import com.zgz.shoppingitems.R
 import com.zgz.shoppingitems.database.ShoppingListDatabase
-import com.zgz.shoppingitems.databinding.FragmentBoughtListBinding
 import com.zgz.shoppingitems.databinding.FragmentCurrentListBinding
 import com.zgz.shoppingitems.shoppinglist.*
 

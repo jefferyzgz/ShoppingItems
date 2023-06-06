@@ -18,4 +18,7 @@
     <color name="deleted_orange">#F8E3DD</color>
     <color name="textview_grey">#DFDDDD</color>
     <color name="textview_background_grey">#C8C7C7</color>
+    <color name="swipe_buy_red">#f56156</color>
+    <color name="swipe_delete_blue">#355096</color>
+    <color name="swipe_resume_green">#388310</color>
 </resources>

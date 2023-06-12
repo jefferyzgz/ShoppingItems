@@ -122,7 +122,6 @@
             android:hint="@string/item_unit_hint"
             android:inputType="textPersonName"
             app:layout_constraintBottom_toTopOf="@+id/importance_group"
-            app:layout_constraintEnd_toStartOf="@+id/add_new_button"
             app:layout_constraintStart_toEndOf="@+id/shopping_item_amount"
             app:layout_constraintTop_toBottomOf="@+id/shopping_item_list" />
 
@@ -136,7 +135,24 @@
             app:layout_constraintBottom_toTopOf="@+id/importance_group"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/shopping_item_list"
+            app:layout_constraintStart_toEndOf="@+id/shopping_item_unit_edit"
             app:srcCompat="@drawable/add_circle_outline_24"
+            app:tint="@color/colorAccent"
+            />
+
+        <ImageView
+            android:id="@+id/modify_item_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:contentDescription="@string/modify_item_button"
+            app:srcCompat="@drawable/ic_baseline_mode_24"
+            app:layout_constraintBottom_toTopOf="@+id/importance_group"
+            app:layout_constraintStart_toEndOf="@+id/shopping_item_unit_edit"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/shopping_item_list"
+            android:visibility="gone"
             app:tint="@color/colorAccent"
             />
 
@@ -175,20 +191,6 @@
 
         </RadioGroup>
 
-        <ImageView
-            android:id="@+id/modify_item_button"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:srcCompat="@drawable/ic_baseline_mode_24"
-            tools:layout_editor_absoluteX="302dp"
-            tools:layout_editor_absoluteY="579dp"
-            android:contentDescription="@string/add_item_button"
-            app:layout_constraintBottom_toTopOf="@+id/importance_group"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/shopping_item_list"
-            android:visibility="gone"
-            app:tint="@color/colorAccent"
-            />
         <EditText
             android:id="@+id/modify_item_id"
             android:layout_width="0dp"

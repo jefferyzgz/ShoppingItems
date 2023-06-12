@@ -13,4 +13,5 @@
     <string name="ShoppingListsText">Saved Shopping Lists</string>
     <string name="add_list_button">Add a new List</string>
     <string name="delete_list_button">Delete</string>
+    <string name="modify_item_button">Modify Item</string>
 </resources>

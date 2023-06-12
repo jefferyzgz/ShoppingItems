@@ -34,12 +34,12 @@ class ShoppingListSummaryAdapter(val clickDeleteListener: ShoppingListSummaryDel
                      clickSelectListener: ShoppingListSummarySelectListener) {
                 val res = itemView.context.resources
                 binding.itemName.text = item.listName
-                binding.itemAmount.text = item.listId.toString()
-                binding.deleteButton.setOnClickListener{
-                    Toast.makeText(it.context, "dddddd:"+item.listId, Toast.LENGTH_SHORT).show()
+                //binding.itemAmount.text = item.listId.toString()
+/*                binding.deleteButton.setOnClickListener{
+                    //Toast.makeText(it.context, "dddddd:"+item.listId, Toast.LENGTH_SHORT).show()
 
                     //database.deleteList(item.listId)
-                }
+                }*/
                 binding.list = item
                 binding.clickDeleteListener = clickDeleteListener
                 binding.clickSelectListener = clickSelectListener

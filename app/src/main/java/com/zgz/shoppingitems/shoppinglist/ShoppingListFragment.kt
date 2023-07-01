@@ -97,37 +97,54 @@ class ShoppingListFragment : Fragment() {
 
         //Modify the selected item
         binding.modifyItemButton.setOnClickListener {
-            val checkedId = binding.importanceGroup.checkedRadioButtonId
-            var priority = 0
-            when(checkedId) {
-                R.id.radio_vimp -> priority = 2
-                R.id.radio_imp -> priority = 1
-                else -> 0
+            //check if the item name is empty
+            if (binding.shoppingItemNameEdit.text.isEmpty()) {
+                Toast.makeText(this.context, "Please input the name of item!", Toast.LENGTH_SHORT)
+                    .show()
+                binding.shoppingItemNameEdit.requestFocus()
+
+            } else {
+                val checkedId = binding.importanceGroup.checkedRadioButtonId
+                var priority = 0
+                when (checkedId) {
+                    R.id.radio_vimp -> priority = 2
+                    R.id.radio_imp -> priority = 1
+                    else -> 0
+                }
+
+                shoppingListViewModel.updateShoppingItem(
+                    listId,
+                    binding.modifyItemId.text.toString().toLong(),
+                    binding.shoppingItemNameEdit.text.toString(),
+                    binding.shoppingItemAmount.value.toLong(),
+                    binding.shoppingItemUnitEdit.text.toString(),
+                    priority
+                )
+
+                binding.shoppingItemNameEdit.setText("")
+                binding.shoppingItemNameEdit.requestFocus()
+                binding.shoppingItemAmount.value = 1
+                binding.shoppingItemUnitEdit.setText("")
+                binding.radioNorm.isChecked = true
+                binding.modifyItemButton.visibility = View.GONE
+                binding.addNewButton.visibility = View.VISIBLE
             }
-
-            shoppingListViewModel.updateShoppingItem(
-                listId,
-                binding.modifyItemId.text.toString().toLong(),
-                binding.shoppingItemNameEdit.text.toString(),
-                binding.shoppingItemAmount.value.toLong(),
-                binding.shoppingItemUnitEdit.text.toString(),
-                priority)
-
-            binding.shoppingItemNameEdit.setText("")
-            binding.shoppingItemNameEdit.requestFocus()
-            binding.shoppingItemAmount.value = 1
-            binding.shoppingItemUnitEdit.setText("")
-            binding.radioNorm.isChecked = true
-            binding.modifyItemButton.visibility = View.GONE
-            binding.addNewButton.visibility = View.VISIBLE
         }
 
         binding.saveListButton.setOnClickListener {
             val listName = binding.listTitleText.text.toString()
-            shoppingListViewModel.updateShoppingListName(listId, listName)
-            Log.i("update listname", "listid=" +id+ ",listname=" + listName)
-            Toast.makeText(this.context, "Update List Name Successfully!", Toast.LENGTH_SHORT).show()
+            //check if the list name is empty
+            if (listName.isEmpty()) {
+                Toast.makeText(this.context, "Please input the name of List!", Toast.LENGTH_SHORT)
+                    .show()
+                binding.saveListButton.requestFocus()
 
+            } else {
+                shoppingListViewModel.updateShoppingListName(listId, listName)
+                Log.i("update listname", "listid=" + id + ",listname=" + listName)
+                Toast.makeText(this.context, "Update List Name Successfully!", Toast.LENGTH_SHORT)
+                    .show()
+            }
         }
 
         binding.runListButton.setOnClickListener {

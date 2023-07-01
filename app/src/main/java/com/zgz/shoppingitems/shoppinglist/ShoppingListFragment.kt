@@ -8,6 +8,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.annotation.ColorInt
 import androidx.databinding.DataBindingUtil
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.ItemTouchHelper
@@ -62,24 +63,35 @@ class ShoppingListFragment : Fragment() {
         binding.shoppingItemAmount.value = 1
 
         binding.addNewButton.setOnClickListener {
-            val checkedId = binding.importanceGroup.checkedRadioButtonId
-            var priority = 0
-            when(checkedId) {
-               R.id.radio_vimp -> priority = 2
-                R.id.radio_imp -> priority = 1
-                else -> 0
-            }
-            shoppingListViewModel.insertNewShoppingItemToList(listId,
-                binding.shoppingItemNameEdit.text.toString(),
-                binding.shoppingItemAmount.value.toLong(),
-                binding.shoppingItemUnitEdit.text.toString(),
-                priority)
 
-            binding.shoppingItemNameEdit.setText("")
-            binding.shoppingItemNameEdit.requestFocus()
-            binding.shoppingItemAmount.value = 1
-            binding.shoppingItemUnitEdit.setText("")
-            binding.radioNorm.isChecked = true
+            //check if the item name is empty
+            if (binding.shoppingItemNameEdit.text.isEmpty()) {
+                Toast.makeText(this.context, "Please input the name of item!", Toast.LENGTH_SHORT)
+                    .show()
+                binding.shoppingItemNameEdit.requestFocus()
+
+            } else {
+                val checkedId = binding.importanceGroup.checkedRadioButtonId
+                var priority = 0
+                when (checkedId) {
+                    R.id.radio_vimp -> priority = 2
+                    R.id.radio_imp -> priority = 1
+                    else -> 0
+                }
+                shoppingListViewModel.insertNewShoppingItemToList(
+                    listId,
+                    binding.shoppingItemNameEdit.text.toString(),
+                    binding.shoppingItemAmount.value.toLong(),
+                    binding.shoppingItemUnitEdit.text.toString(),
+                    priority
+                )
+
+                binding.shoppingItemNameEdit.setText("")
+                binding.shoppingItemNameEdit.requestFocus()
+                binding.shoppingItemAmount.value = 1
+                binding.shoppingItemUnitEdit.setText("")
+                binding.radioNorm.isChecked = true
+            }
         }
 
 
@@ -144,5 +156,6 @@ class ShoppingListFragment : Fragment() {
         // TODO: Use the ViewModel
     }
 */
+
 
 }

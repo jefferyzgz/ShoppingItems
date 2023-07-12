@@ -5,17 +5,17 @@ import android.content.DialogInterface
 import android.os.Bundle
 import android.text.Html
 import android.util.Log
+import android.view.*
 import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
 import android.widget.Toast
 import androidx.core.content.ContextCompat
 import androidx.core.text.HtmlCompat
 import androidx.core.view.marginRight
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
+import androidx.navigation.ui.NavigationUI
 import com.zgz.shoppingitems.R
 import com.zgz.shoppingitems.database.ShoppingListDatabase
 import com.zgz.shoppingitems.databinding.FragmentShoppingListSummaryBinding
@@ -98,7 +98,20 @@ class ShoppingListSummaryFragment : Fragment() {
             }
         })
 
+        setHasOptionsMenu(true)
+
         return binding.root
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        super.onCreateOptionsMenu(menu, inflater)
+        inflater?.inflate(R.menu.overflow_menu, menu)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        return NavigationUI.onNavDestinationSelected(item!!,
+        requireView().findNavController())
+                || super.onOptionsItemSelected(item)
     }
 
     fun deleteList(shoppingListSummaryViewModel : ShoppingListSummaryViewModel, listId : Long) {

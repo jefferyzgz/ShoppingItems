@@ -14,4 +14,9 @@
     <string name="add_list_button">Add a new List</string>
     <string name="delete_list_button">Delete</string>
     <string name="modify_item_button">Modify Item</string>
+    <string name="saved_shopping_list">Shopping Lists</string>
+    <string name="add_shopping_items">Shopping Items</string>
+    <string name="go_shopping">Let\'s Go Shopping</string>
+    <string name="about_text">About</string>
+    <string name="user_manual_text">User Manual</string>
 </resources>

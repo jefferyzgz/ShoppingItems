@@ -14,6 +14,7 @@
         <entry key="..\:/Users/jeffe/AndroidStudioProjects/ShoppingItems/app/src/main/res/drawable/textview_border2.xml" value="0.403125" />
         <entry key="..\:/Users/jeffe/AndroidStudioProjects/ShoppingItems/app/src/main/res/font/roboto.xml" value="0.1" />
         <entry key="..\:/Users/jeffe/AndroidStudioProjects/ShoppingItems/app/src/main/res/layout/activity_main.xml" value="0.21875" />
+        <entry key="..\:/Users/jeffe/AndroidStudioProjects/ShoppingItems/app/src/main/res/layout/fragment_about.xml" value="0.20364583333333333" />
         <entry key="..\:/Users/jeffe/AndroidStudioProjects/ShoppingItems/app/src/main/res/layout/fragment_bought_list.xml" value="0.33" />
         <entry key="..\:/Users/jeffe/AndroidStudioProjects/ShoppingItems/app/src/main/res/layout/fragment_current_list.xml" value="0.3695652173913043" />
         <entry key="..\:/Users/jeffe/AndroidStudioProjects/ShoppingItems/app/src/main/res/layout/fragment_deleted_list.xml" value="0.3695652173913043" />
@@ -22,9 +23,11 @@
         <entry key="..\:/Users/jeffe/AndroidStudioProjects/ShoppingItems/app/src/main/res/layout/fragment_running_list_host.xml" value="0.353713768115942" />
         <entry key="..\:/Users/jeffe/AndroidStudioProjects/ShoppingItems/app/src/main/res/layout/fragment_shopping_list.xml" value="0.21875" />
         <entry key="..\:/Users/jeffe/AndroidStudioProjects/ShoppingItems/app/src/main/res/layout/fragment_shopping_list_summary.xml" value="0.2667572463768116" />
+        <entry key="..\:/Users/jeffe/AndroidStudioProjects/ShoppingItems/app/src/main/res/layout/fragment_user_manual.xml" value="0.29846014492753625" />
         <entry key="..\:/Users/jeffe/AndroidStudioProjects/ShoppingItems/app/src/main/res/layout/running_list_item.xml" value="0.36096014492753625" />
         <entry key="..\:/Users/jeffe/AndroidStudioProjects/ShoppingItems/app/src/main/res/layout/shopping_list_item.xml" value="0.38697916666666665" />
         <entry key="..\:/Users/jeffe/AndroidStudioProjects/ShoppingItems/app/src/main/res/layout/shopping_list_summary_item.xml" value="0.28396739130434784" />
+        <entry key="..\:/Users/jeffe/AndroidStudioProjects/ShoppingItems/app/src/main/res/menu/overflow_menu.xml" value="0.38697916666666665" />
         <entry key="..\:/Users/jeffe/AndroidStudioProjects/ShoppingItems/app/src/main/res/menu/running_list_bottom_nav_menu.xml" value="0.38697916666666665" />
       </map>
     </option>

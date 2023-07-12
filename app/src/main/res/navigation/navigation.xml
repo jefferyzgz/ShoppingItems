@@ -8,17 +8,16 @@
     <fragment
         android:id="@+id/shoppingListSummaryFragment"
         android:name="com.zgz.shoppingitems.shoppinglistsummary.ShoppingListSummaryFragment"
-        android:label="ShoppingListSummaryFragment"
+        android:label="@string/saved_shopping_list"
         tools:layout="@layout/fragment_shopping_list_summary">
         <action
             android:id="@+id/action_shoppingListSummaryFragment_to_shoppingListFragment"
-            app:destination="@id/shoppingListFragment"
-            />
+            app:destination="@id/shoppingListFragment" />
     </fragment>
     <fragment
         android:id="@+id/shoppingListFragment"
         android:name="com.zgz.shoppingitems.shoppinglist.ShoppingListFragment"
-        android:label="ShoppingListFragment"
+        android:label="@string/add_shopping_items"
         tools:layout="@layout/fragment_shopping_list">
         <argument
             android:name="shoppingListId"
@@ -26,8 +25,7 @@
         <action
             android:id="@+id/action_shoppingListFragment_to_shoppingListSummaryFragment"
             app:destination="@id/shoppingListSummaryFragment"
-            app:launchSingleTop="false"
-            />
+            app:launchSingleTop="false" />
         <action
             android:id="@+id/action_shoppingListFragment_to_runningListHostFragment"
             app:destination="@id/runningListHostFragment" />
@@ -35,7 +33,7 @@
     <fragment
         android:id="@+id/runningListHostFragment"
         android:name="com.zgz.shoppingitems.runninglist.RunningListHostFragment"
-        android:label="RunningListHostFragment" >
+        android:label="@string/go_shopping">
         <action
             android:id="@+id/action_runningListHostFragment_to_shoppingListFragment"
             app:destination="@id/shoppingListFragment" />
@@ -43,4 +41,14 @@
             android:name="shoppingListId"
             app:argType="long" />
     </fragment>
+    <fragment
+        android:id="@+id/aboutFragment"
+        android:name="com.zgz.shoppingitems.AboutFragment"
+        android:label="fragment_about"
+        tools:layout="@layout/fragment_about" />
+    <fragment
+        android:id="@+id/userManualFragment"
+        android:name="com.zgz.shoppingitems.UserManualFragment"
+        android:label="fragment_user_manual"
+        tools:layout="@layout/fragment_user_manual" />
 </navigation>

@@ -104,14 +104,14 @@ class ShoppingItemSwipeToDeleteCallBack(private val viewModel: ShoppingListViewM
         val itemHeight = itemView.bottom - itemView.top
         val backgroundCornerOffset = 20
         if (dX > 0) { // Swiping to the right
-            background = ColorDrawable(Color.parseColor("#355096"))
+            background = ColorDrawable(Color.parseColor("#f56156"))
             background.setBounds(
                 itemView.getLeft(), itemView.getTop(),
                 itemView.getLeft() + dX.toInt() + backgroundCornerOffset,
                 itemView.getBottom()
             )
         } else if (dX < 0) { // Swiping to the left
-            background = ColorDrawable(Color.parseColor("#f56156"))
+            background = ColorDrawable(Color.parseColor("#355096"))
             background.setBounds(
                 itemView.getRight() + dX.toInt() - backgroundCornerOffset,
                 itemView.getTop(), itemView.getRight(), itemView.getBottom()
@@ -127,9 +127,9 @@ class ShoppingItemSwipeToDeleteCallBack(private val viewModel: ShoppingListViewM
         if (dX > 0) { // Swiping to the right
             textX = 10f
 
-            text = "ARCHIVE"
-        } else if (dX < 0)  {
             text = "DELETE"
+        } else if (dX < 0)  {
+            text = "ARCHIVE"
         } else {
             text = ""
         }
@@ -154,7 +154,7 @@ class ShoppingItemSwipeToDeleteCallBack(private val viewModel: ShoppingListViewM
         val position = viewHolder.adapterPosition
         val itemId = adapter.fetchItemId(position)
 
-        viewModel.deleteShoppingItem(itemId)
+        viewModel.markShoppingItemAsDelete(itemId)
         //Log.i("Swipe", "position="+position + "++id=" + itemId)
     }
 

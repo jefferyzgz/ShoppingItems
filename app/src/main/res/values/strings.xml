@@ -9,7 +9,7 @@
     <string name="ItemInputName">Item name</string>
     <string name="item_name_hint">name of item</string>
     <string name="shopping_list_name_hint">shopping list name</string>
-    <string name="item_unit_hint">unit</string>
+    <string name="item_unit_hint">price</string>
     <string name="ShoppingListsText">Saved Shopping Lists</string>
     <string name="add_list_button">Add a new List</string>
     <string name="delete_list_button">Delete</string>
@@ -18,5 +18,7 @@
     <string name="add_shopping_items">Shopping Items</string>
     <string name="go_shopping">Let\'s Go Shopping</string>
     <string name="about_text">About</string>
+    <string name="about_text_detail">ShoppingListZ will make your shopping be a fun and will let you add items to your list anytime when you have an idea.\n\nAnd you can modify the list anytime!\n\nThe unique swiping to buy or delete will make your shopping so easy!</string>
     <string name="user_manual_text">User Manual</string>
+    <string name="about_the_app">ShoppingListZ App</string>
 </resources>

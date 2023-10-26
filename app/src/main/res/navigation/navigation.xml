@@ -44,11 +44,11 @@
     <fragment
         android:id="@+id/aboutFragment"
         android:name="com.zgz.shoppingitems.AboutFragment"
-        android:label="fragment_about"
+        android:label="@string/about_text"
         tools:layout="@layout/fragment_about" />
     <fragment
         android:id="@+id/userManualFragment"
         android:name="com.zgz.shoppingitems.UserManualFragment"
-        android:label="fragment_user_manual"
+        android:label="@string/user_manual_text"
         tools:layout="@layout/fragment_user_manual" />
 </navigation>

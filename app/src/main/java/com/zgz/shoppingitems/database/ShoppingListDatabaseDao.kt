@@ -36,11 +36,17 @@ interface ShoppingListDatabaseDao {
     /**
      * Select and return all items with state in a shopping list.
      */
-    @Query("SELECT * from shopping_item_table where shopping_list_id = :listId and item_state = :itemState")
+    @Query("SELECT * from shopping_item_table where shopping_list_id = :listId and item_state = :itemState order by item_priority desc")
     fun getItemsByListIdAndState(listId: Long, itemState: Int): LiveData<List<ShoppingItem>>
 
     /**
-     * Select and return all items in a shopping list.
+     * Count the item number with state including in a shopping list.
+     */
+    @Query("SELECT count(item_id) from shopping_item_table where shopping_list_id = :listId and item_state = :itemState order by item_priority desc")
+    suspend fun countItemsByListIdAndState(listId: Long, itemState: Int): Int
+
+    /**
+     * Select and return one item in a shopping list.
      */
     @Query("SELECT * from shopping_item_table where item_id = :itemId")
     suspend fun getItemById(itemId: Long): ShoppingItem

@@ -1,13 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <item android:title="Bought"
+    <item
+        android:id="@+id/bought_list"
         android:icon="@drawable/ic_baseline_add_shopping_cart_24"
-        android:id="@+id/bought_list"/>
-    <item android:title="ShoppingList"
+        android:title="@string/bought_menu_title" />
+    <item
+        android:id="@+id/current_list"
         android:icon="@drawable/ic_baseline_format_list_numbered_24"
-        android:id="@+id/current_list"/>
-    <item android:title="Deleted"
+        android:title="@string/inlist_menu_title" />
+    <item
+        android:id="@+id/deleted_list"
         android:icon="@drawable/ic_baseline_playlist_remove_24"
-        android:id="@+id/deleted_list"/>
+        android:title="@string/deleted_menu_title" />
 </menu>

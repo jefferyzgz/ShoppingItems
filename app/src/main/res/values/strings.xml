@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">ShoppingListZ</string>
+    <string name="app_name">EazyShoppingList</string>
     <string name="list_name">List Name</string>
     <string name="add_item_button">Add Item</string>
     <string name="run_list_button">Go!</string>
@@ -18,7 +18,10 @@
     <string name="add_shopping_items">Shopping Items</string>
     <string name="go_shopping">Let\'s Go Shopping</string>
     <string name="about_text">About</string>
-    <string name="about_text_detail">ShoppingListZ will make your shopping be a fun and will let you add items to your list anytime when you have an idea.\n\nAnd you can modify the list anytime!\n\nThe unique swiping to buy or delete will make your shopping so easy!</string>
+    <string name="about_text_detail">EazyShoppingList will make your shopping be a fun and will let you add items to your list anytime when you have an idea.\n\nAnd you can modify the list anytime!\n\nThe unique swiping to buy or delete will make your shopping so easy!</string>
     <string name="user_manual_text">User Manual</string>
-    <string name="about_the_app">ShoppingListZ App</string>
+    <string name="about_the_app">EazyShoppingList App</string>
+    <string name="bought_menu_title">Bought</string>
+    <string name="inlist_menu_title">In List</string>
+    <string name="deleted_menu_title">Deleted</string>
 </resources>

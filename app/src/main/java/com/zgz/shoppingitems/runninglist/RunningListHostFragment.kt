@@ -12,7 +12,7 @@ import com.zgz.shoppingitems.R
 import com.zgz.shoppingitems.database.ShoppingListDatabase
 import com.zgz.shoppingitems.databinding.FragmentRunningListHostBinding
 import com.zgz.shoppingitems.shoppinglist.ShoppingListFragmentArgs
-import kotlinx.android.synthetic.main.fragment_running_list_host.*
+//import kotlinx.android.synthetic.main.fragment_running_list_host.*
 
 /**
  * A simple [Fragment] subclass.

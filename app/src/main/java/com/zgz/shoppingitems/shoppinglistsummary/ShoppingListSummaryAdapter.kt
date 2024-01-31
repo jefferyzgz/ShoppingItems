@@ -10,7 +10,7 @@ import com.zgz.shoppingitems.database.ShoppingItem
 import com.zgz.shoppingitems.database.ShoppingList
 import com.zgz.shoppingitems.database.ShoppingListDatabaseDao
 import com.zgz.shoppingitems.databinding.ShoppingListSummaryItemBinding
-import com.zgz.shoppingitems.generated.callback.OnClickListener
+//import com.zgz.shoppingitems.generated.callback.OnClickListener
 import kotlin.coroutines.coroutineContext
 
 class ShoppingListSummaryAdapter(val clickDeleteListener: ShoppingListSummaryDeleteListener,

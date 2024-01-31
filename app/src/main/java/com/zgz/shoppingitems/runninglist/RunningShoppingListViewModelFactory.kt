@@ -10,7 +10,7 @@ class RunningShoppingListViewModelFactory (
     private val dataSource: ShoppingListDatabaseDao,
     private val application: Application) : ViewModelProvider.Factory {
         @Suppress("unchecked_cast")
-        override fun <T : ViewModel?> create(modelClass: Class<T>): T {
+        override fun <T : ViewModel> create(modelClass: Class<T>): T {
             if(modelClass.isAssignableFrom(RunningShoppingListViewModel::class.java)) {
                 return RunningShoppingListViewModel(listIdKey, dataSource, application) as T
             }
